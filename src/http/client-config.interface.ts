@@ -1,4 +1,4 @@
 export interface ClientConfig {
-  baseUrl: string;
-  headers: Record<string, string|number>
+  baseUrl: string
+  headers: Record<string, string | number>
 }
