@@ -8,7 +8,7 @@ const attachments = [
     content: createReadStream(path.join(__dirname, '../../public/linkedIn.csv'))
   }
 ]
-async function sendMail(): Promise<void> {
+export async function sendMail(): Promise<void> {
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
@@ -20,15 +20,13 @@ async function sendMail(): Promise<void> {
   })
   const message = {
     from: 'toto@toto.com',
-    to: 'gabyngoune@yahoo.fr',
-    subject: 'Jobs linkedIn',
+    to: ['antoine.guillaud@gomindfactory.com', 'charles.azevedo@gomindfactory.com'],
+    subject: 'Derniers jobs linkedIn',
     attachments
   }
   try {
-    const info = await transporter.sendMail(message)
-    console.log('Message sent', info.messageId)
+    await transporter.sendMail(message)
   } catch (err) {
     console.error('Error occured', err)
   }
 }
-void sendMail()

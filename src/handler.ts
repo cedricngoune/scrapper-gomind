@@ -4,12 +4,13 @@ import * as Papa from 'papaparse'
 import { FileHelper } from './helpers/file.helper'
 import { platforms } from './platform.constant'
 import { keywords } from './keword.constant'
+import { sendMail } from './services/send-email'
 
 export async function handler(): Promise<any> {
   const logger = new Logger(uuidv4())
 
   try {
-    logger.info('Starting scrapping jobs')
+    logger.info('Starting scrapping jobs 🔎')
     const promises = platforms
       .map((platform) => keywords.map(async (keyword) => await platform.searchByKey(keyword)))
       .flat()
@@ -17,9 +18,11 @@ export async function handler(): Promise<any> {
     let fileContents = ''
     res.forEach((r) => (fileContents += Papa.unparse(r.jobs, { delimiter: ';' })))
 
-    logger.info('Uploading the file...')
+    logger.info('Uploading the file 📂')
     const fileHelper = new FileHelper()
 
+    logger.info('Sending email 📨')
+    void sendMail()
     return {
       statusCode: 200,
       body: await fileHelper.saveFile('linkedIn.csv', fileContents)
