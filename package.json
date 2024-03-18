@@ -7,7 +7,8 @@
   "license": "ISC",
   "scripts": {
     "lint": "eslint src/**/*.ts --fix",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "send": "ts-node src/services/send-email.ts"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.114",
@@ -16,6 +17,7 @@
     "@types/lodash": "^4.17.0",
     "@types/mysql": "^2.15.21",
     "@types/node": "^18.15.0",
+    "@types/nodemailer": "^6.4.14",
     "@types/papaparse": "^5.3.14",
     "@types/uuid": "^9.0.1",
     "@types/winston": "^2.4.4",
@@ -36,6 +38,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
+    "nodemailer": "^6.9.12",
     "papaparse": "^5.4.1",
     "uuid": "^9.0.0",
     "winston": "^3.8.2"

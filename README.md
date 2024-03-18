@@ -1,20 +1,13 @@
-# 🚀 Welcome to your new awesome project!
+# 🚀 Scrapping app
 
-This project has been created using **webpack-cli**, you can now run
+Projet de scrapping crée en NodeJs + Typescript qui permet de récupérer toutes les offres d'emploi dans le domaine de l'IT.
 
-```
-npm run build
-```
+## Executer le projet
 
-or
+Lancer la commande suivante:
 
 ```
-yarn build
+npm run start
 ```
 
-to bundle your application
-
-Enable source map: 
-```
-export NODE_OPTIONS=--enable-source-maps
-```
+et dans le répertoire public, se trouve le fichier au format .csv contenant la liste des offres récupérées depuis LinkedIn

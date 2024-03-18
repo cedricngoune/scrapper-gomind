@@ -1,4 +1,1 @@
-export const keywords: string[] = [
-  'angular',
-  'node'
-]
+export const keywords: string[] = ['mobile', 'javascript']

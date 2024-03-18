@@ -1,6 +1,4 @@
-import { LinkedInService } from "./LinkedIn/linkedIn.service";
-import { Scrapper } from "./scrapper.interface";
+import { LinkedInService } from './LinkedIn/linkedIn.service'
+import { type Scrapper } from './scrapper.interface'
 
-export const platforms: Scrapper[] = [
-  new LinkedInService(),
-];
+export const platforms: Scrapper[] = [new LinkedInService()]
