@@ -34,6 +34,9 @@ jobs:
       - name: Send email
         run: npm run send ${{secrets.GITHUB_TOKEN}}
         env:
-          USERNAME: ${{ secrets.GITHUB_TOKEN}}
-          PASSWORD: ${{secrets.GITHUB_TOKEN}}
-          RECIPIENTS: ${{secrets.GITHUB_TOKEN}}
+          USERNAME: ${{ secrets.USERNAME}}
+          PASSWORD: ${{secrets.PASSWORD}}
+          RECIPIENTS: ${{secrets.RECIPIENTS}}
+
+      - name: verify env variables
+        run: echo ${{secrets.RECIPIENTS}}

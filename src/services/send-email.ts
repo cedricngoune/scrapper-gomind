@@ -9,7 +9,7 @@ const attachments = [
   }
 ]
 export async function sendMail(): Promise<void> {
-  if (typeof process.env.G_USERNAME === 'undefined') {
+  if (typeof process.env.USERNAME === 'undefined') {
     return
   }
   const transporter = nodemailer.createTransport({
@@ -17,8 +17,8 @@ export async function sendMail(): Promise<void> {
     port: 587,
     secure: false,
     auth: {
-      user: process.env.G_USERNAME,
-      pass: process.env.G_PASSWORD
+      user: process.env.USERNAME,
+      pass: process.env.PASSWORD
     }
   })
   const message = {
