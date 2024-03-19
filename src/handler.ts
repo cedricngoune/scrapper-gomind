@@ -4,7 +4,6 @@ import * as Papa from 'papaparse'
 import { FileHelper } from './helpers/file.helper'
 import { platforms } from './platform.constant'
 import { keywords } from './keword.constant'
-import { sendMail } from './services/send-email'
 
 export async function handler(): Promise<any> {
   const logger = new Logger(uuidv4())
@@ -21,8 +20,6 @@ export async function handler(): Promise<any> {
     logger.info('Uploading the file 📂')
     const fileHelper = new FileHelper()
 
-    logger.info('Sending email 📨')
-    void sendMail()
     return {
       statusCode: 200,
       body: await fileHelper.saveFile('linkedIn.csv', fileContents)

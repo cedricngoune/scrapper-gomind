@@ -9,18 +9,21 @@ const attachments = [
   }
 ]
 export async function sendMail(): Promise<void> {
+  if (typeof process.env.G_USERNAME === 'undefined') {
+    return
+  }
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
     auth: {
-      user: 'cedric.ngoune@gomindfactory.com',
-      pass: 'rrde ojvc krzb vuoz'
+      user: process.env.G_USERNAME,
+      pass: process.env.G_PASSWORD
     }
   })
   const message = {
     from: 'toto@toto.com',
-    to: ['antoine.guillaud@gomindfactory.com', 'charles.azevedo@gomindfactory.com'],
+    to: process.env.RECIPIENTS,
     subject: 'Derniers jobs linkedIn',
     attachments
   }
@@ -30,3 +33,4 @@ export async function sendMail(): Promise<void> {
     console.error('Error occured', err)
   }
 }
+void sendMail()

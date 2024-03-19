@@ -1,1 +1,1 @@
-export const keywords: string[] = ['mobile', 'javascript']
+export const keywords: string[] = ['react', 'node', 'flutter']

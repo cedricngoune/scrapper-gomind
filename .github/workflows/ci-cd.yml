@@ -19,7 +19,11 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm run build
+        env:
+          CI: true
 
       - name: Generate artifact
         uses: actions/upload-artifact@v2
@@ -27,5 +31,9 @@ jobs:
           name: jobs
           path: public
 
-      # - name: Send email
-      #   run: ts-node src/services/send-email.ts
+      - name: Send email
+        run: npm run send ${{secrets.GITHUB_TOKEN}}
+        env:
+          USERNAME: ${{ secrets.GITHUB_TOKEN}}
+          PASSWORD: ${{secrets.GITHUB_TOKEN}}
+          RECIPIENTS: ${{secrets.GITHUB_TOKEN}}

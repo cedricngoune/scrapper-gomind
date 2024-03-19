@@ -1,14 +1,15 @@
 {
-  "name": "qcm-test-api",
+  "name": "scrapping-linkedin",
   "version": "1.0.0",
-  "description": "QCM API for fictive engineering technical test",
+  "description": "LinkedIn application",
   "main": "dist/app.js",
-  "author": "Rodrigue FUOSSEU",
+  "author": "Cédric Ngouné",
   "license": "ISC",
   "scripts": {
     "lint": "eslint src/**/*.ts --fix",
     "start": "ts-node src/index.ts",
-    "send": "ts-node src/services/send-email.ts"
+    "build": "rm -rf dist && tsc",
+    "send": "node --env-file=.env dist/services/send-email.js"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.114",
