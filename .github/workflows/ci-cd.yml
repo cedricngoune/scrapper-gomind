@@ -37,6 +37,3 @@ jobs:
           USERNAME: ${{ secrets.USERNAME}}
           PASSWORD: ${{secrets.PASSWORD}}
           RECIPIENTS: ${{secrets.RECIPIENTS}}
-
-      - name: verify env variables
-        run: echo ${{secrets.RECIPIENTS}}
